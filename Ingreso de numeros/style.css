@@ -1,0 +1,80 @@
+body {
+    background-color: #f2f1f1;
+    font-family: Consolas, 'Courier New', 'Lucida Console', monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+    color: #b20a0a;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+label {
+    font-size: 17px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input {
+    width: 80px;
+    padding: 5px;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+#numero1{
+    margin-left: 10px;
+}
+
+h2 {
+    font-size: 20px;
+    color: #332828;
+    margin-top: 25px;
+}
+
+button {
+    background-color: #409843;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:active {
+    background-color: #3e8e41;
+}
+
+#resultados {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+ol {
+    padding-left: 20px;
+}

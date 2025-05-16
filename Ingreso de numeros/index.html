@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ingreso de numeros</title>
+</head>
+<body>
+    <div class="container">
+        <h1>OPERACIONES</h1>
+        <label>Ingrese el primer valor:</label>
+        <input type="number" id="numero1"><br>
+        <label>Ingrese el segundo valor:</label>
+        <input type="number" id="numero2"><br>
+        
+        <button onclick="Operaciones()">Calcular</button>
+        <h2>Resultados:</h2>
+        <div id="resultados"></div>
+    </div>
+
+    <script>
+    function Operaciones() {
+      const num1 = parseFloat(document.getElementById("numero1").value);
+      const num2 = parseFloat(document.getElementById("numero2").value);
+      const resultados = document.getElementById("resultados");
+
+      resultados.innerHTML = "";
+      const lista = document.createElement("ol");
+
+      for (let i = 1; i <= 5; i++) {
+        let resultadoTexto = "";
+
+        switch (i) {
+          case 1:
+            resultadoTexto = `Suma: ${num1 + num2}`;
+            break;
+          case 2:
+            resultadoTexto = `Resta: ${num1 - num2}`;
+            break;
+          case 3:
+            resultadoTexto = `Multiplicación: ${num1 * num2}`;
+            break;
+          case 4:
+            resultadoTexto = num2 !== 0
+              ? `División: ${num1 / num2}`
+              : `División: Error, no se puede dividir entre cero.`;
+            break;
+          case 5:
+            resultadoTexto = num2 !== 0
+              ? `Residuo: ${num1 % num2}`
+              : `Residuo: Error, no se puede sacar mod con cero.`;
+            break;
+        }
+
+        const item = document.createElement("li");
+        item.textContent = resultadoTexto;
+        lista.appendChild(item);
+      }
+
+      resultados.appendChild(lista);
+    }
+  </script>
+</body>
+</html>
