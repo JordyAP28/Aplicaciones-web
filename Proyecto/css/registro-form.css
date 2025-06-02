@@ -1,0 +1,23 @@
+.titulo-form{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+}
+.bg-uleam {
+    background-color: #171717f0 !important;
+}
+
+.btn-uleam {
+    background-color: #2a2727f0;
+    color: white;
+    border: none;
+}
+
+.btn-uleam:hover {
+    background-color: #0f0e0e;
+    color: #fff;
+}
+
+.titulo1{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}

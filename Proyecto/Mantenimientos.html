@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mantenimientos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>ULEAM - Gestion de mobiliario</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="Index.html">
+            <img src="img/Uleam.png" class="logo" alt="ULEAM">
+        </a>
+        <button class="menu-toggle ms-auto" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <div class="sidebar" id="sidebar">
+        <ul class="sidebar-menu">
+            <li class="section-title">GESTIÓN DE MOBILIARIO</li>
+            <li><a href="registrar-mobiliario.html"><i class="fas fa-plus-circle me-2"></i> Registrar mobiliario</a></li>
+            <li><a href="inventario.html"><i class="fas fa-list me-2"></i> Inventario</a></li>
+            <li><a href="Asignar-mobiliario.html"><i class="fas fa-truck-moving me-2"></i> Reubicación</a></li>
+                    
+            <li class="section-title">MANTENIMIENTO</li>
+            <li><a href="Reporte-mobiliario.html"><i class="fas fa-tools me-2"></i> Reportar daño</a></li>
+            <li><a href="Mantenimientos.html"><i class="fas fa-clipboard-check me-2"></i> Mantenimientos</a></li>
+
+            <li class="section-title">GESTIÓN DE USUARIOS</li>
+            <li><a href="Nuevo-usuario.html"><i class="fas fa-user-plus me-2"></i> Nuevo Usuario</a></li>
+            <li><a href="Lista-usuarios.html"><i class="fas fa-users me-2"></i> Lista de Usuarios</a></li>
+            
+            <li class="section-title">CUENTA</li>
+            <li><a href="Actualizar-datos.html"><i class="fas fa-sync-alt me-2"></i> Actualizar datos</a></li>
+            <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i> Cerrar sesión</a></li><br>
+        </ul>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="titulo1">Mantenimiento de Mobiliario</h1>
+                    <hr>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-dark text-white">
+                    <i class="fas fa-filter me-2"></i>Filtros de Búsqueda
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="filtroEstado" class="form-label">Estado</label>
+                            <select class="form-select" id="filtroEstado">
+                                <option value="" selected>Todos</option>
+                                <option value="pendiente">Pendiente</option>
+                                <option value="en-proceso">En proceso</option>
+                                <option value="completado">Completado</option>
+                                <option value="cancelado">Cancelado</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="filtroFechaInicio" class="form-label">Fecha Inicio</label>
+                            <input type="date" class="form-control" id="filtroFechaInicio">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="filtroFechaFin" class="form-label">Fecha Fin</label>
+                            <input type="date" class="form-control" id="filtroFechaFin">
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button class="btn btn-outline-secondary me-md-2" type="button">
+                            <i class="fas fa-sync-alt me-2"></i>Limpiar
+                        </button>
+                        <button class="btn btn-danger" type="button">
+                            <i class="fas fa-search me-2"></i>Buscar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                    <span><i class="fas fa-list me-2"></i>Registros de Mantenimiento</span>
+                    <button class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#nuevoMantenimientoModal">
+                        <i class="fas fa-plus me-2"></i>Nuevo
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Mobiliario</th>
+                                    <th>Fecha Reporte</th>
+                                    <th>Tipo</th>
+                                    <th>Estado</th>
+                                    <th>Técnico</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ULEAM-2458</td>
+                                    <td>Silla A-203 (FACCI)</td>
+                                    <td>15/05/2025</td>
+                                    <td>Reparación</td>
+                                    <td><span class="badge bg-warning">Pendiente</span></td>
+                                    <td>Asignar</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary me-1">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-success me-1">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Siguiente</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="nuevoMantenimientoModal" tabindex="-1" aria-hidden="true" style="margin-top: 90px;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title"><i class="fas fa-plus-circle me-2"></i>Nuevo Mantenimiento</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formMantenimiento">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="codigoMobiliario" class="form-label">Código Mobiliario</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="codigoMobiliario" required>
+                                    <button class="btn btn-outline-secondary" type="button">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="tipoMantenimiento" class="form-label">Tipo de Mantenimiento</label>
+                                <select class="form-select" id="tipoMantenimiento" required>
+                                    <option value="" selected disabled>Seleccione...</option>
+                                    <option value="preventivo">Preventivo</option>
+                                    <option value="correctivo">Correctivo</option>
+                                    <option value="urgente">Urgente</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="descripcionMantenimiento" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="descripcionMantenimiento" rows="3" required></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="tecnicoAsignado" class="form-label">Técnico Asignado</label>
+                                <select class="form-select" id="tecnicoAsignado" required>
+                                    <option value="" selected disabled>Seleccione...</option>
+                                    <option value="1">Juan Pérez</option>
+                                    <option value="2">María Gómez</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="fechaProgramada" class="form-label">Fecha Programada</label>
+                                <input type="date" class="form-control" id="fechaProgramada" required>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-2"></i>Cancelar
+                    </button>
+                    <button type="button" class="btn btn-success">
+                        <i class="fas fa-save me-2"></i>Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/main.js"></script>
+    <script src="js/validar-mantenimientos.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

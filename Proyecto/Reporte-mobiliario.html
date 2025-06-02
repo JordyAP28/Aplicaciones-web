@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reporte-mobiliario.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>ULEAM - Gestion de mobiliario</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="Index.html">
+            <img src="img/Uleam.png" class="logo" alt="ULEAM">
+        </a>
+        <button class="menu-toggle ms-auto" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <div class="sidebar" id="sidebar">
+        <ul class="sidebar-menu">
+            <li class="section-title">GESTIÓN DE MOBILIARIO</li>
+            <li><a href="registrar-mobiliario.html"><i class="fas fa-plus-circle me-2"></i> Registrar mobiliario</a></li>
+            <li><a href="inventario.html"><i class="fas fa-list me-2"></i> Inventario</a></li>
+            <li><a href="Asignar-mobiliario.html"><i class="fas fa-truck-moving me-2"></i> Reubicación</a></li>
+            
+            <li class="section-title">MANTENIMIENTO</li>
+            <li><a href="Reporte-mobiliario.html"><i class="fas fa-tools me-2"></i> Reportar daño</a></li>
+            <li><a href="Mantenimientos.html"><i class="fas fa-clipboard-check me-2"></i> Mantenimientos</a></li>
+
+            <li class="section-title">GESTIÓN DE USUARIOS</li>
+            <li><a href="Nuevo-usuario.html"><i class="fas fa-user-plus me-2"></i> Nuevo Usuario</a></li>
+            <li><a href="Lista-usuarios.html"><i class="fas fa-users me-2"></i> Lista de Usuarios</a></li>
+            
+            <li class="section-title">CUENTA</li>
+            <li><a href="Actualizar-datos.html"><i class="fas fa-sync-alt me-2"></i> Actualizar datos</a></li>
+            <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i> Cerrar sesión</a></li><br>
+        </ul>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="titulo1">Reporte de daño Mobiliario</h1>
+                    <hr>
+                </div>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <form id="formReporte">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="codigoMobiliario" class="form-label">Código del Mobiliario</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="codigoMobiliario" required>
+                                    <button class="btn btn-outline-secondary" type="button" id="buscarMobiliario">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="tipoDaño" class="form-label">Tipo de Daño</label>
+                                <select class="form-select" id="tipoDaño" required>
+                                    <option value="" selected disabled>Seleccione...</option>
+                                    <option value="estructura">Daño estructural</option>
+                                    <option value="superficie">Daño superficial</option>
+                                    <option value="funcional">Falla funcional</option>
+                                    <option value="otros">Otros</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="descripcion" class="form-label">Descripción del Daño</label>
+                            <textarea class="form-control" id="descripcion" rows="3" required></textarea>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="ubicacion" class="form-label">Ubicación Actual</label>
+                                <input type="text" class="form-control" id="ubicacion" readonly>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="fechaReporte" class="form-label">Fecha de Reporte</label>
+                                <input type="date" class="form-control" id="fechaReporte" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="imagenDaño" class="form-label">Evidencia Fotográfica</label>
+                            <input type="file" class="form-control" id="imagenDaño" accept="image/*">
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="button" class="btn btn-secondary me-md-2" id="btnCancelar">
+                                <i class="fas fa-times me-2"></i>Cancelar
+                            </button>
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-paper-plane me-2"></i>Reportar Daño
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <script src="js/main.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

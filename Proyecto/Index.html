@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>ULEAM - Gestion de mobiliario</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="Index.html">
+            <img src="img/Uleam.png" class="logo" alt="ULEAM">
+        </a>
+        <button class="menu-toggle ms-auto" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <div class="sidebar" id="sidebar">
+        <ul class="sidebar-menu">
+            <li class="section-title">GESTIÓN DE MOBILIARIO</li>
+            <li><a href="Registrar-mobiliario.html"><i class="fas fa-plus-circle me-2"></i> Registrar mobiliario</a></li>
+            <li><a href="Inventario.html"><i class="fas fa-list me-2"></i> Inventario</a></li>
+            <li><a href="Asignar-mobiliario.html"><i class="fas fa-truck-moving me-2"></i> Reubicación</a></li>
+            
+            <li class="section-title">MANTENIMIENTO</li>
+            <li><a href="Reporte-mobiliario.html"><i class="fas fa-tools me-2"></i> Reportar daño</a></li>
+            <li><a href="Mantenimientos.html"><i class="fas fa-clipboard-check me-2"></i> Mantenimientos</a></li>
+
+            <li class="section-title">GESTIÓN DE USUARIOS</li>
+            <li><a href="Nuevo-usuario.html"><i class="fas fa-user-plus me-2"></i> Nuevo Usuario</a></li>
+            <li><a href="Lista-usuarios.html"><i class="fas fa-users me-2"></i> Lista de Usuarios</a></li>
+            
+            <li class="section-title">CUENTA</li>
+            <li><a href="Actualizar-datos.html"><i class="fas fa-sync-alt me-2"></i> Actualizar datos</a></li>
+            <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i> Cerrar sesión</a></li><br>
+        </ul>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="titulo-uleam">Universidad Laica</h1>
+                    <h1 class="titulo-uleam">"Eloy Alfaro de Manabí"</h1><br>
+                </div>
+                <div class="col-6">
+                    <p class="texto1">Este sistema web esta diseñado para administrar el inventario
+                        de mobiliario de la "Universidad Laica Eloy Alfaro de Manabí"
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/main.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

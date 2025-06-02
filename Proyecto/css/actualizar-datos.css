@@ -1,0 +1,48 @@
+.titulo1{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+.breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-item.active {
+    color: #6c757d;
+}
+
+.card {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.img-thumbnail {
+    padding: 0.25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 50%;
+    max-width: 100%;
+    height: auto;
+}
+
+.progress {
+    background-color: #e9ecef;
+    border-radius: 3px;
+}
+
+.progress-bar {
+    transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+.btn-outline-light {
+    border-color: #dee2e6;
+}
+
+.btn-outline-light:hover {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+

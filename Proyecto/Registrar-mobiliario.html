@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/registro-form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>ULEAM - Gestion de mobiliario</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="Index.html">
+            <img src="img/Uleam.png" class="logo" alt="ULEAM">
+        </a>
+        <button class="menu-toggle ms-auto" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <div class="sidebar" id="sidebar">
+        <ul class="sidebar-menu">
+            <li class="section-title">GESTIÓN DE MOBILIARIO</li>
+            <li><a href="Registrar-mobiliario.html"><i class="fas fa-plus-circle me-2"></i> Registrar mobiliario</a></li>
+            <li><a href="Inventario.html"><i class="fas fa-list me-2"></i> Inventario</a></li>
+            <li><a href="Asignar-mobiliario.html"><i class="fas fa-truck-moving me-2"></i> Reubicación</a></li>
+            
+            <li class="section-title">MANTENIMIENTO</li>
+            <li><a href="Reporte-mobiliario.html"><i class="fas fa-tools me-2"></i> Reportar daño</a></li>
+            <li><a href="Mantenimientos.html"><i class="fas fa-clipboard-check me-2"></i> Mantenimientos</a></li>
+
+            <li class="section-title">GESTIÓN DE USUARIOS</li>
+            <li><a href="Nuevo-usuario.html"><i class="fas fa-user-plus me-2"></i> Nuevo Usuario</a></li>
+            <li><a href="Lista-usuarios.html"><i class="fas fa-users me-2"></i> Lista de Usuarios</a></li>
+            
+            <li class="section-title">CUENTA</li>
+            <li><a href="Actualizar-datos.html"><i class="fas fa-sync-alt me-2"></i> Actualizar datos</a></li>
+            <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i> Cerrar sesión</a></li><br>
+        </ul>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form id="registroMobiliario" class="row g-3 needs-validation">
+                        <h1 class="titulo1 visible">Registrar Mobiliario</h1>
+                        <hr>
+                        <fieldset class="col-md-6">
+                            <h1 class="fw-bold titulo-form visible"><i class="fas fa-barcode "></i><i class="fas fa-barcode"></i><i class="fas fa-barcode me-2"></i>Codigo de identificación</h1>
+
+                            <div class="mb-3">
+                                <label for="codigo" class="form-label">Código QR/ID <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="codigo" required>
+                                    <button class="btn btn-outline-secondary" type="button" id="generarQR">
+                                        <i class="fas fa-qrcode"></i> Generar
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="tipo" class="form-label">Tipo de mobiliario <span class="text-danger">*</span></label>
+                                <select class="form-select" id="tipo" required>
+                                    <option value="" selected disabled>Seleccionar...</option>
+                                    <option value="silla">Silla</option>
+                                    <option value="mesa">Mesa</option>
+                                    <option value="escritorio">Escritorio</option>
+                                    <option value="estante">Estante</option>
+                                    <option value="pizarra">Pizarra</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="material" class="form-label">Material principal</label>
+                                <input type="text" class="form-control" id="material" placeholder="Ej: Madera, metal, plástico...">
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="col-md-6">
+                            <h1 class="fw-bold titulo-form visible"><i class="fas fa-map-marker-alt me-2"></i>Ubicación</h1>
+                            
+                            <div class="mb-3">
+                                <label for="facultad" class="form-label">Facultad <span class="text-danger">*</span></label>
+                                <select class="form-select" id="facultad" required>
+                                    <option value="" selected disabled>Seleccionar...</option>
+                                    <option value="ingenieria">Ingeniería</option>
+                                    <option value="medicina">Medicina</option>
+                                    <option value="educacion">Educación</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="aula" class="form-label">Aula/Espacio</label>
+                                <input type="text" class="form-control" id="aula">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="responsable" class="form-label">Responsable</label>
+                                <select class="form-select" id="responsable">
+                                    <option value="" selected disabled>Asignar a...</option>
+                                    <option value="departamento">Departamento</option>
+                                    <option value="profesor">Profesor</option>
+                                    <option value="administrativo">Personal administrativo</option>
+                                </select>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="col-6">
+                            <h1 class="fw-bold titulo-form visible"><i class="fas fa-clipboard-list me-2"></i>Características</h1>
+                            
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="estado" class="form-label">Estado <span class="text-danger">*</span></label>
+                                    <select class="form-select" id="estado" required>
+                                        <option value="nuevo">Nuevo</option>
+                                        <option value="bueno" selected>Bueno</option>
+                                        <option value="regular">Regular</option>
+                                        <option value="malo">Requiere reparación</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="fecha_adquisicion" class="form-label">Fecha de adquisición</label>
+                                    <input type="date" class="form-control" id="fecha_adquisicion">
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="valor" class="form-label">Valor (USD)</label>
+                                    <input type="number" class="form-control" id="valor" step="0.01" min="0">
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="observaciones" class="form-label">Observaciones</label>
+                                <textarea class="form-control" id="observaciones" rows="2"></textarea>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="col-6">
+                            <h1 class="fw-bold titulo-form visible"><i class="fas fa-camera me-2"></i>Imagen de mobiliario</h1><br>
+                            <div class="mb-3">
+                                <input type="file" class="form-control" id="foto" accept="image/*">
+                                <div class="form-text">Suba imágenes del mobiliario (máx. 2MB)</div>
+                            </div>
+                        </fieldset>
+
+                        <center>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-uleam">
+                                <i class="fas fa-save me-2"></i> Registrar Mobiliario
+                            </button>
+                            <button type="reset" class="btn btn-outline-secondary ms-2">
+                                <i class="fas fa-eraser me-2"></i> Limpiar
+                            </button><br><br>
+                        </div>
+                        </center>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/main.js"></script>
+    <script src="js/validar-registro-mobiliario.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

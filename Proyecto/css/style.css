@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap');
+/*Estilos Index*/
+body {
+    margin: 0;
+    padding: 0;
+    transition: margin-left 0.3s;
+}
+
+.logo {
+    height: 50px;
+    margin-left: 10px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1100;
+}
+
+.sidebar {
+    width: 225px;
+    height: calc(100% - 66px);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 66px;
+    background-color: #2b2f33;
+    color: white;
+    transition: transform 0.3s;
+    z-index: 1000;
+    overflow-y: auto;
+}
+        
+.sidebar.collapsed {
+    transform: translateX(-350px);
+}
+        
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    margin-right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: margin-left 0.3s;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+        
+.sidebar-menu li {
+    padding: 7px 20px;
+    border-bottom: 1px solid #131516;
+}
+        
+.sidebar-menu li:hover {
+    background-color: #13171c;
+}
+        
+.sidebar-menu li a {
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+        
+.section-title {
+    color: #7f8c8d;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    padding: 15px 20px 5px;
+    margin-top: 10px;
+    border-top: 2px solid #363c43;
+}
+        
+.menu-icon {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.main-content {
+    margin-left: 230px;
+    margin-top: 75px;
+    width: calc(100% - 230px);
+    min-height: calc(100vh - 70px);
+    opacity: 0;
+    transform: translateY(3px);
+    transition: margin-left 0.3s ease, width 0.3s ease, opacity 1.5s ease, transform 1.5s ease;
+}
+
+.main-content.expanded {
+    margin-left: 0 !important;
+    width: 100%;
+
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding-left: 50px;
+    }
+
+    .sidebar.show + .main-content {
+        transform: translateX(230px);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .main-content.expanded {
+        margin-left: 0 !important;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .main-content.expanded {
+        margin-left: 0 !important;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .main-content.expanded {
+        margin-left: 0 !important;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .main-content.expanded {
+        margin-left: -50px !important;
+    }
+}
+
+.titulo-uleam {
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: #ab0606f0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.texto1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+

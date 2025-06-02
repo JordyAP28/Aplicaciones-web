@@ -1,0 +1,92 @@
+body.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.min-vh-100 {
+    min-height: 100vh;
+}
+
+.titulo1{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 27px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.titulo2 {
+    font-family: 'Monserrat', sans-serif;
+    font-size: 20px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #2e3032;
+    padding: 1.5rem;
+}
+
+.form-control-lg {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+}
+
+.btn-lg {
+    padding: 0.75rem 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.btn-danger {
+    background-color: #ab0606f0;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #8a0505;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(171, 6, 6, 0.3);
+}
+
+.input-group-text {
+    background-color: #f8f9fa;
+    border-right: none;
+}
+
+.form-control {
+    border-left: none;
+}
+
+.form-control:focus {
+    border-color: #ced4da;
+    box-shadow: 0 0 0 0.25rem rgba(171, 6, 6, 0.1);
+}
+
+#togglePassword {
+    border-left: none;
+    background-color: #f8f9fa;
+}
+
+#togglePassword:hover {
+    background-color: #e9ecef;
+}
+
+a {
+    color: #ab0606f0;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #8a0505;
+}
+

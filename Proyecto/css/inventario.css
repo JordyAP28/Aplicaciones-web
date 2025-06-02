@@ -1,0 +1,40 @@
+#tablaInventario {
+    font-size: 0.9rem;
+}
+
+#tablaInventario th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+#tablaInventario tr:hover {
+    background-color: rgba(171, 6, 6, 0.03) !important;
+}
+
+.badge.bg-success {
+    background-color: #178130 !important;
+}
+
+.bg-uleam {
+    background-color: #171717f0 !important;
+}
+
+.btn-uleam {
+    background-color: #2a2727f0;
+    color: white;
+    border: none;
+}
+
+.btn-uleam:hover {
+    background-color: #0f0e0e;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    #tablaInventario td:nth-child(3),
+    #tablaInventario th:nth-child(3) {
+        display: none;
+    }
+}

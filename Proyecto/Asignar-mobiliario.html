@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/asignar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>ULEAM - Gestion de mobiliario</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="Index.html">
+            <img src="img/Uleam.png" class="logo" alt="ULEAM">
+        </a>
+        <button class="menu-toggle ms-auto" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <div class="sidebar" id="sidebar">
+        <ul class="sidebar-menu">
+            <li class="section-title">GESTIÓN DE MOBILIARIO</li>
+            <li><a href="registrar-mobiliario.html"><i class="fas fa-plus-circle me-2"></i> Registrar mobiliario</a></li>
+            <li><a href="inventario.html"><i class="fas fa-list me-2"></i> Inventario</a></li>
+            <li><a href="Asignar-mobiliario.html"><i class="fas fa-truck-moving me-2"></i> Reubicación</a></li>
+            
+            <li class="section-title">MANTENIMIENTO</li>
+            <li><a href="Reporte-mobiliario.html"><i class="fas fa-tools me-2"></i> Reportar daño</a></li>
+            <li><a href="Mantenimientos.html"><i class="fas fa-clipboard-check me-2"></i> Mantenimientos</a></li>
+
+            <li class="section-title">GESTIÓN DE USUARIOS</li>
+            <li><a href="Nuevo-usuario.html"><i class="fas fa-user-plus me-2"></i> Nuevo Usuario</a></li>
+            <li><a href="Lista-usuarios.html"><i class="fas fa-users me-2"></i> Lista de Usuarios</a></li>
+            
+            <li class="section-title">CUENTA</li>
+            <li><a href="Actualizar-datos.html"><i class="fas fa-sync-alt me-2"></i> Actualizar datos</a></li>
+            <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i> Cerrar sesión</a></li><br>
+        </ul>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="titulo1">Reubicación de Mobiliario</h1>
+                    <hr>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Filtros -->
+                <div class="col-md-12">
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h5 class="mb-0"><i class="fas fa-filter me-2"></i> Filtros</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Codigo</label>
+                                    <input type="text" class="form-control" placeholder="QR/ID">
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Ubicación Actual</label>
+                                    <select class="form-select" id="filter-ubicacion">
+                                        <option value="">Todas las ubicaciones</option>
+                                        <option>Edificio A</option>
+                                        <option>Edificio B</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Tipo de Mobiliario</label>
+                                    <select class="form-select" id="filter-tipo">
+                                        <option value="">Todos los tipos</option>
+                                        <option>Sillas</option>
+                                        <option>Mesas</option>
+                                        <option>Escritorios</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2 mb-3 d-flex align-items-end">
+                                    <button class="btn btn-primary w-100" id="btn-buscar">
+                                        <i class="fas fa-search me-2"></i> Buscar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobiliario -->
+                 <div class="col-md-12 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-light">
+                            <h5 class="mb-0"><i class="fas fa-list me-2"></i> Mobiliario</h5>
+                        </div>
+                        <div class="card-body" style="max-height: 400px; overflow-y: auto;">
+                            <div class="list-group" id="lista-mobiliario">
+                                <a href="#" class="list-group-item list-group-item-action mobiliario-card" data-id="1">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <h6 class="mb-1">Silla Ejecutiva</h6>
+                                            <small class="text-muted">Código: ULEAM-2458</small>
+                                        </div>
+                                        <span class="badge bg-secondary">Edificio A, Aula 203</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario de reubicación -->
+                <div class="col-md-12">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-light">
+                            <h5 class="mb-0"><i class="fas fa-edit me-2"></i> Detalles de Reubicación</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="form-reubicacion">
+                                <div class="row">
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Mobiliario seleccionado</label>
+                                        <input type="text" class="form-control" id="item-seleccionado" readonly>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Nueva Ubicación</label>
+                                        <select class="form-select" id="nueva-ubicacion" required>
+                                            <option value="" disabled selected>Seleccione ubicación</option>
+                                            <option>Edificio A, Aula 101</option>
+                                            <option>Edificio A, Aula 102</option>
+                                            <option>Edificio B, Laboratorio 3</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Responsable</label>
+                                        <select class="form-select" id="responsable" required>
+                                            <option value="" disabled selected>Seleccione responsable</option>
+                                            <option>Departamento de Logística</option>
+                                            <option>Juan Pérez (Personal de mantenimiento)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Fecha de reubicación</label>
+                                        <input type="date" class="form-control" id="fecha-reubicacion" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Observaciones</label>
+                                        <textarea class="form-control" rows="3"></textarea>
+                                    </div>
+                                    <center>
+                                    <div class="col-md-3 mb-3">
+                                        <button type="submit" class="btn btn-primary w-100">
+                                            <i class="fas fa-save me-2"></i> Guardar Reubicación
+                                        </button>
+                                    </div>
+                                    </center>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+    
+    <script src="js/main.js"></script>
+    <script src="js/validar-asignar-mobiliario.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

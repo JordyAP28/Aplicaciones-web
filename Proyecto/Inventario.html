@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/inventario.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>ULEAM - Gestion de mobiliario</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="Index.html">
+            <img src="img/Uleam.png" class="logo" alt="ULEAM">
+        </a>
+        <button class="menu-toggle ms-auto" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <div class="sidebar" id="sidebar">
+        <ul class="sidebar-menu">
+            <li class="section-title">GESTIÓN DE MOBILIARIO</li>
+            <li><a href="Registrar-mobiliario.html"><i class="fas fa-plus-circle me-2"></i> Registrar mobiliario</a></li>
+            <li><a href="Inventario.html"><i class="fas fa-list me-2"></i> Inventario</a></li>
+            <li><a href="Asignar-mobiliario.html"><i class="fas fa-truck-moving me-2"></i> Reubicación</a></li>
+           
+            <li class="section-title">MANTENIMIENTO</li>
+            <li><a href="Reporte-mobiliario.html"><i class="fas fa-tools me-2"></i> Reportar daño</a></li>
+            <li><a href="Mantenimientos.html"><i class="fas fa-clipboard-check me-2"></i> Mantenimientos</a></li>
+
+            <li class="section-title">GESTIÓN DE USUARIOS</li>
+            <li><a href="Nuevo-usuario.html"><i class="fas fa-user-plus me-2"></i> Nuevo Usuario</a></li>
+            <li><a href="Lista-usuarios.html"><i class="fas fa-users me-2"></i> Lista de Usuarios</a></li>
+            
+            <li class="section-title">CUENTA</li>
+            <li><a href="Actualizar-datos.html"><i class="fas fa-sync-alt me-2"></i> Actualizar datos</a></li>
+            <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i> Cerrar sesión</a></li><br>
+        </ul>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="container-fluid mt-4">
+                        <div class="card shadow">
+                            <div class="card-header bg-uleam text-white">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0"><i class="fas fa-couch me-2"></i>Inventario de Mobiliario</h5>
+                                    <button class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#exportModal">
+                                        <i class="fas fa-file-export me-1"></i> Exportar
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="card-body border-bottom">
+                                <div class="row g-3">
+                                    <div class="col-md-3">
+                                        <label for="filterCodigo" class="form-label">Código</label>
+                                        <input type="text" id="filterCodigo" class="form-control" placeholder="QR/ID...">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="filterTipo" class="form-label">Tipo</label>
+                                        <select id="filterTipo" class="form-select">
+                                            <option value="">Todos</option>
+                                            <option value="silla">Sillas</option>
+                                            <option value="mesa">Mesas</option>
+                                            <option value="escritorio">Escritorios</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="filterFacultad" class="form-label">Facultad</label>
+                                        <select id="filterFacultad" class="form-select">
+                                            <option value="">Todas</option>
+                                            <option value="ingenieria">Ingeniería</option>
+                                            <option value="medicina">Medicina</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2 d-flex align-items-end">
+                                        <button id="btnBuscar" class="btn btn-uleam w-100">
+                                            <i class="fas fa-search me-1"></i> Buscar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0" id="tablaInventario">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th width="120">Código</th>
+                                            <th>Tipo</th>
+                                            <th>Material</th>
+                                            <th>Ubicación</th>
+                                            <th>Estado</th>
+                                            <th width="120">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <span class="badge bg-dark">ULEAM-2458</span>
+                                            </td>
+                                            <td>
+                                                <i class="fas fa-chair me-2"></i>Silla ergonómica
+                                            </td>
+                                            <td>Metal/Plástico</td>
+                                            <td>
+                                                <span class="d-block">Edificio A</span>
+                                                <small class="text-muted">Aula 203</small>
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-success">Buen estado</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary" title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-danger ms-1" title="Eliminar">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="card-footer bg-white">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="text-muted">
+                                        Mostrando <span class="fw-bold">1-10</span>
+                                    </div>
+                                    <nav>
+                                        <ul class="pagination pagination-sm mb-0">
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="#">Anterior</a>
+                                            </li>
+                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">Siguiente</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="exportModal" tabindex="-1" aria-hidden="true" style="margin-top: 80px;">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Exportar Inventario</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="radio" name="exportType" id="exportPDF" checked>
+                                        <label class="form-check-label" for="exportPDF">
+                                            <i class="fas fa-file-pdf text-danger me-1"></i> PDF
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exportType" id="exportExcel">
+                                        <label class="form-check-label" for="exportExcel">
+                                            <i class="fas fa-file-excel text-success me-1"></i> Excel
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-uleam">
+                                        <i class="fas fa-download me-1"></i> Descargar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script src="js/main.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

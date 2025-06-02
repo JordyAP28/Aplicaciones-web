@@ -1,0 +1,54 @@
+.titulo1{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+.card {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-label.required:after {
+    content: " *";
+    color: #dc3545;
+}
+
+.progress {
+    background-color: #e9ecef;
+    border-radius: 3px;
+}
+
+.progress-bar {
+    transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+.form-control[type="file"] {
+    padding: 0.375rem;
+}
+
+#generarUsuario {
+    transition: all 0.3s ease;
+}
+
+#generarUsuario:hover {
+    background-color: #f8f9fa;
+}
+
+.is-valid {
+    border-color: #198754 !important;
+}
+
+.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1.25rem;
+    }
+    
+    .input-group > .btn {
+        padding: 0.375rem 0.75rem;
+    }
+}
