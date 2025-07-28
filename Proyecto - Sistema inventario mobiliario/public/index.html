@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/img/Uleam.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sistema de Gestión de Mobiliario ULEAM - Universidad Laica Eloy Alfaro de Manabí" />
+  <meta name="keywords" content="ULEAM, mobiliario, inventario, gestión, universidad" />
+  <meta name="author" content="ULEAM" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sistema de Gestión de Mobiliario ULEAM" />
+  <meta property="og:description" content="Sistema web para administrar el inventario de mobiliario de la Universidad Laica Eloy Alfaro de Manabí" />
+  <meta property="og:image" content="/img/Uleam - logo.png" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Sistema de Gestión de Mobiliario ULEAM" />
+  <meta property="twitter:description" content="Sistema web para administrar el inventario de mobiliario de la Universidad Laica Eloy Alfaro de Manabí" />
+  <meta property="twitter:image" content="/img/Uleam - logo.png" />
+  
+  <title>ULEAM - Sistema de Gestión de Mobiliario</title>
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/img/Uleam.png" as="image" />
+  <link rel="preload" href="/img/Uleam - logo.png" as="image" />
+  
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#dc3545" />
+  
+  <!-- iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="ULEAM Mobiliario" />
+  <link rel="apple-touch-icon" href="/img/Uleam.png" />
+  
+  <!-- Android -->
+  <meta name="mobile-web-app-capable" content="yes" />
+</head>
+<body>
+  <div id="app">
+    <!-- Loading inicial -->
+    <div id="initial-loading" class="d-flex align-items-center justify-content-center min-vh-100">
+      <div class="text-center">
+        <img src="../public/Uleam - logo.png  " alt="ULEAM" class="mb-3" style="max-width: 200px;" />
+        <div class="spinner-border text-danger" role="status">
+          <span class="visually-hidden">Cargando...</span>
+        </div>
+        <p class="mt-3 text-muted">Cargando sistema...</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scripts -->
+  <script type="module" src="/src/main.js"></script>
+  
+  <!-- Service Worker para PWA -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((registration) => {
+            console.log('SW registered: ', registration);
+          })
+          .catch((registrationError) => {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+    
+    // Ocultar loading inicial cuando Vue esté listo
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const loading = document.getElementById('initial-loading');
+        if (loading) {
+          loading.style.display = 'none';
+        }
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
